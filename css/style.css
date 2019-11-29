@@ -1,0 +1,78 @@
+/* Global Imports */
+@font-face {
+  font-display: fallback;
+  font-family: "Acrom";
+  font-style: normal;
+  src: url("../assets/fonts/Acrom-ExtraBold.woff") format("woff"); }
+
+@font-face {
+  font-display: fallback;
+  font-family: "CircuarStd-Black";
+  font-style: normal;
+  src: url("../assets/fonts/CircularStd-Black.woff2") format("woff2"), url("../assets/fonts/CircularStd-Black.woff") format("woff"); }
+
+@font-face {
+  font-display: fallback;
+  font-family: "CircuarStd-BlackItalic";
+  font-style: normal;
+  src: url("../assets/fonts/CircularStd-BlackItalic.woff2") format("woff2"), url("../assets/fonts/CircularStd-BlackItalic.woff") format("woff"); }
+
+@font-face {
+  font-display: fallback;
+  font-family: "CircuarStd-Book";
+  font-style: normal;
+  src: url("../assets/fonts/CircularStd-Book.woff2") format("woff2"), url("../assets/fonts/CircularStd-Book.woff") format("woff"); }
+
+@font-face {
+  font-display: fallback;
+  font-family: "CircuarStd-Medium";
+  font-style: normal;
+  src: url("../assets/fonts/CircularStd-Medium.woff2") format("woff2"), url("../assets/fonts/CircularStd-Medium.woff") format("woff"); }
+
+:root {
+  --bg-color: #e0e2e2;
+  --primary-text-color: #000;
+  --primary-font: "CircuarStd-Medium", "Helvetica Neue", Helvetica, sans-serif; }
+
+/* -- Base Styles  ---------- */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth; }
+  @media only screen and (max-width: 880px) {
+    html {
+      font-size: 56%; } }
+  @media only screen and (max-width: 750px) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 700px) {
+    html {
+      font-size: 45%; } }
+  @media only screen and (max-width: 500px) {
+    html {
+      font-size: 40%; } }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+html * {
+  padding: 0;
+  margin: 0; }
+
+body {
+  font-family: var(--primary-font); }
+
+a,
+a:link,
+a:visited {
+  cursor: pointer;
+  text-decoration: none; }
+
+ul,
+li {
+  list-style: none; }
+
+h1 {
+  font-size: 3rem; }
