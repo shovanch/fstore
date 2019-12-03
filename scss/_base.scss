@@ -30,7 +30,7 @@ html * {
 }
 
 body {
-  font-family: var(--primary-font);
+  font-family: var(--primary-text-font);
 }
 
 a,
@@ -43,8 +43,4 @@ a:visited {
 ul,
 li {
   list-style: none;
-}
-
-h1 {
-  font-size: 3rem;
 }

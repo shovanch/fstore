@@ -32,7 +32,14 @@
 :root {
   --bg-color: #e0e2e2;
   --primary-text-color: #000;
-  --primary-font: "CircuarStd-Medium", "Helvetica Neue", Helvetica, sans-serif; }
+  --primary-text-font: "CircuarStd-Medium", "Helvetica Neue", Helvetica,
+    sans-serif;
+  --primary-text-font-light: "CircuarStd-Book", "Helvetica Neue", Helvetica,
+    sans-serif;
+  --primary-heading-font-bold-italic: "CircuarStd-BlackItalic", "Helvetica Neue",
+    Helvetica, sans-serif;
+  --secondary-heading-font-bold: "Acrom", "Helvetica Neue", Helvetica,
+    sans-serif; }
 
 /* -- Base Styles  ---------- */
 html {
@@ -62,7 +69,7 @@ html * {
   margin: 0; }
 
 body {
-  font-family: var(--primary-font); }
+  font-family: var(--primary-text-font); }
 
 a,
 a:link,
@@ -74,5 +81,68 @@ ul,
 li {
   list-style: none; }
 
-h1 {
-  font-size: 3rem; }
+* {
+  outline: 1px solid red; }
+
+.container {
+  max-width: 114rem;
+  margin: 0 auto; }
+
+/*------HOME------*/
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem; }
+  .header__logo {
+    margin-right: auto;
+    font-family: var(--secondary-heading-font-bold);
+    font-size: 3.6rem; }
+  .header__cart, .header__signin {
+    margin-left: 2rem;
+    font-size: 2rem; }
+
+/* Sale */
+.backgroud-img {
+  width: 100%;
+  height: 100%;
+  background-position: 50%;
+  background-size: cover; }
+
+.sale__background {
+  background-image: url("../assets/images/winter-sale.jpg");
+  border-radius: 5px; }
+
+.sale__container {
+  display: flex;
+  height: 32rem;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem; }
+
+.sale__content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.sale__heading {
+  color: #ffffff;
+  font-family: var(--primary-heading-font-bold-italic);
+  font-size: 4rem; }
+
+.sale__link {
+  display: inline-block;
+  padding: 2rem 3rem;
+  margin-top: 2rem;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 5px;
+  color: #fff;
+  font-size: 2rem; }
+
+/*------PRODUCT CATEGORY------*/
+/*------USER------*/
+/*------CART------*/

@@ -1,0 +1,80 @@
+* {
+  outline: 1px solid red;
+}
+
+.container {
+  max-width: 114rem;
+  margin: 0 auto;
+}
+
+/*------HOME------*/
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+
+  &__logo {
+    margin-right: auto;
+    font-family: var(--secondary-heading-font-bold);
+    font-size: 3.6rem;
+  }
+
+  &__cart,
+  &__signin {
+    margin-left: 2rem;
+    font-size: 2rem;
+  }
+}
+
+/* Sale */
+.backgroud-img {
+  width: 100%;
+  height: 100%;
+  background-position: 50%;
+  background-size: cover;
+}
+
+.sale {
+  &__background {
+    background-image: url("../assets/images/winter-sale.jpg");
+    border-radius: 5px;
+  }
+
+  &__container {
+    display: flex;
+    height: 32rem;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+  }
+
+  &__content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__heading {
+    color: #ffffff;
+    font-family: var(--primary-heading-font-bold-italic);
+    font-size: 4rem;
+  }
+  &__link {
+    display: inline-block;
+    padding: 2rem 3rem;
+    margin-top: 2rem;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 2rem;
+  }
+}
+
+/*------PRODUCT CATEGORY------*/
+/*------USER------*/
+/*------CART------*/
