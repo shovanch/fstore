@@ -91,7 +91,8 @@ li {
 /* Header */
 .header {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: 4rem; }
   .header__logo {
     margin-right: auto;
     font-family: var(--secondary-heading-font-bold);
@@ -113,8 +114,7 @@ li {
   flex: 1 1 auto;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 5rem; }
+  justify-content: center; }
   .sale__background {
     background-image: url("../assets/images/winter-sale.jpg");
     border-radius: 5px; }
@@ -235,6 +235,19 @@ li {
   .collections .link-5 {
     grid-column-start: span 3;
     grid-row-start: 2; }
+
+.product-hero {
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 28rem; }
+  .product-hero__text {
+    font-family: var(--primary-heading-font-bold-italic);
+    font-size: 5rem;
+    text-transform: uppercase; }
+
+.product-category {
+  margin-top: 40rem; }
 
 /*------USER------*/
 /*------CART------*/

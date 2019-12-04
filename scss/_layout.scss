@@ -14,6 +14,7 @@
 .header {
   display: flex;
   align-items: center;
+  margin-bottom: 4rem;
 
   &__logo {
     margin-right: auto;
@@ -43,7 +44,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 5rem;
 
   &__background {
     background-image: url("../assets/images/winter-sale.jpg");
@@ -185,6 +185,23 @@
     grid-column-start: span 3;
     grid-row-start: 2;
   }
+}
+
+.product-hero {
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 28rem;
+
+  &__text {
+    font-family: var(--primary-heading-font-bold-italic);
+    font-size: 5rem;
+    text-transform: uppercase;
+  }
+}
+
+.product-category {
+  margin-top: 40rem;
 }
 /*------USER------*/
 /*------CART------*/
