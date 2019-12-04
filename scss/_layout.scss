@@ -75,7 +75,7 @@
 }
 
 .home-heading {
-  margin-top: 5.6rem;
+  margin-top: 8rem;
   margin-bottom: 3rem;
   font-family: var(--primary-heading-font-bold-italic);
   font-size: 3.6rem;
@@ -86,8 +86,9 @@
 .product {
   &-container {
     display: grid;
+    margin-bottom: 10rem;
     grid-gap: 7rem 3rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
   }
   &-image {
     height: 34rem;
@@ -154,5 +155,36 @@
   }
 }
 
+.collections {
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 2rem 1rem;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 25rem);
+
+  &__link {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__link-text {
+    color: #fff;
+    font-family: var(--secondary-heading-font-bold);
+    font-size: 4rem;
+    text-transform: uppercase;
+  }
+
+  .link-1,
+  .link-2,
+  .link-3 {
+    grid-column-start: span 2;
+  }
+  .link-4,
+  .link-5 {
+    grid-column-start: span 3;
+    grid-row-start: 2;
+  }
+}
 /*------USER------*/
 /*------CART------*/
