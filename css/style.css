@@ -83,6 +83,7 @@ li {
 
 .container {
   max-width: 114rem;
+  min-height: 100vh;
   padding: 3rem 0;
   margin: 0 auto; }
 
@@ -106,11 +107,7 @@ li {
   background-position: 40%;
   background-size: cover; }
 
-.sale__background {
-  background-image: url("../assets/images/winter-sale.jpg");
-  border-radius: 5px; }
-
-.sale__container {
+.sale {
   display: flex;
   height: 32rem;
   flex: 1 1 auto;
@@ -118,30 +115,30 @@ li {
   align-items: center;
   justify-content: center;
   margin-top: 5rem; }
-
-.sale__content {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; }
-
-.sale__heading {
-  color: #ffffff;
-  font-family: var(--primary-heading-font-bold-italic);
-  font-size: 4rem; }
-
-.sale__link {
-  display: inline-block;
-  padding: 2rem 3rem;
-  margin-top: 2rem;
-  background: rgba(0, 0, 0, 0.9);
-  border-radius: 5px;
-  color: #fff;
-  font-size: 2rem; }
+  .sale__background {
+    background-image: url("../assets/images/winter-sale.jpg");
+    border-radius: 5px; }
+  .sale__content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+  .sale__heading {
+    color: #ffffff;
+    font-family: var(--primary-heading-font-bold-italic);
+    font-size: 4rem; }
+  .sale__link {
+    display: inline-block;
+    padding: 2rem 3rem;
+    margin-top: 2rem;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 2rem; }
 
 .home-heading {
-  margin-top: 5.2rem;
+  margin-top: 5.6rem;
   margin-bottom: 3rem;
   font-family: var(--primary-heading-font-bold-italic);
   font-size: 3.6rem;
@@ -180,6 +177,38 @@ li {
 
 .product-8 {
   background-image: url("https://i.ibb.co/sWN32Jc/h2-600.jpg"); }
+
+.product__footer {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  padding: 1rem 0; }
+
+.product__name {
+  font-size: 2rem; }
+
+.product__price {
+  font-family: var(--primary-text-font-light);
+  font-size: 1.6rem; }
+
+.product-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.product__button {
+  position: absolute;
+  bottom: 8rem;
+  width: 80%;
+  padding: 1.6rem 0;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  cursor: pointer;
+  font-family: var(--primary-text-font);
+  font-size: 2rem;
+  text-transform: uppercase; }
 
 /*------USER------*/
 /*------CART------*/
