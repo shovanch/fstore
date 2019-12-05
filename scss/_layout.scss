@@ -320,15 +320,25 @@ main {
   text-transform: uppercase;
 }
 
+/* ------ CART ----- */
 .sign-up-in {
   display: flex;
   margin-top: 8rem;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 }
 .sign-in {
   display: flex;
   width: 40%;
   flex-direction: column;
   margin-right: 10%;
+
+  @media screen and (max-width: 600px) {
+    width: 90%;
+    margin-bottom: 10%;
+  }
 }
 
 .sign-in__form {
