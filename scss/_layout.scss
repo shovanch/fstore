@@ -9,12 +9,22 @@
   margin: 0 auto;
 }
 
+main {
+  @media screen and (max-width: 1150px) {
+    padding: 0 3rem;
+  }
+}
+
 /*------HOME------*/
 /* Header */
 .header {
   display: flex;
   align-items: center;
   margin-bottom: 4rem;
+
+  @media screen and (max-width: 1200px) {
+    padding: 0 3rem;
+  }
 
   &__logo {
     margin-right: auto;
@@ -45,9 +55,17 @@
   align-items: center;
   justify-content: center;
 
+  @media screen and (max-width: 450px) {
+    height: 24rem;
+  }
+
   &__background {
     background-image: url("../assets/images/winter-sale.jpg");
     border-radius: 5px;
+
+    @media screen and (max-width: 1150px) {
+      border-radius: 0;
+    }
   }
 
   &__content {
@@ -62,6 +80,10 @@
     color: #ffffff;
     font-family: var(--primary-heading-font-bold-italic);
     font-size: 4rem;
+
+    @media screen and (max-width: 600px) {
+      font-size: 3.2rem;
+    }
   }
   &__link {
     display: inline-block;
@@ -80,6 +102,10 @@
   font-family: var(--primary-heading-font-bold-italic);
   font-size: 3.6rem;
   text-transform: uppercase;
+
+  @media screen and (max-width: 450px) {
+    margin-top: 6rem;
+  }
 }
 
 /*------PRODUCT CATEGORY------*/
@@ -87,8 +113,16 @@
   &-container {
     display: grid;
     margin-bottom: 10rem;
-    grid-gap: 7rem 3rem;
+    gap: 7rem 3rem;
     grid-template-columns: repeat(4, 1fr);
+
+    @media screen and (max-width: 800px) {
+      column-gap: 1.8rem;
+    }
+    @media screen and (max-width: 600px) {
+      gap: 4rem 3rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
   &-image {
     height: 34rem;
@@ -142,7 +176,7 @@
   }
   &__button {
     position: absolute;
-    bottom: 8rem;
+    bottom: 7rem;
     width: 80%;
     padding: 1.6rem 0;
     border: none;
@@ -150,17 +184,30 @@
     color: #fff;
     cursor: pointer;
     font-family: var(--primary-text-font);
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-transform: uppercase;
+
+    @media screen and (max-width: 950px) {
+      padding: 1.6rem 0;
+      font-size: 1.6rem;
+    }
+    @media screen and (max-width: 450px) {
+      bottom: 6rem;
+      width: 100%;
+    }
   }
 }
 
 .collections {
   display: grid;
+  gap: 2rem 1rem;
   grid-auto-flow: row;
-  grid-gap: 2rem 1rem;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 25rem);
+
+  @media screen and (max-width: 400px) {
+    grid-template-rows: repeat(2, 20rem);
+  }
 
   &__link {
     display: block;
@@ -173,6 +220,14 @@
     font-family: var(--secondary-heading-font-bold);
     font-size: 4rem;
     text-transform: uppercase;
+
+    @media screen and (max-width: 600px) {
+      font-size: 3.2rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 2rem;
+    }
   }
 
   .link-1,
