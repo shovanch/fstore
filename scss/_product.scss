@@ -1,0 +1,103 @@
+.product {
+  display: grid;
+  margin-bottom: 10rem;
+  gap: 7rem 3rem;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media screen and (max-width: 800px) {
+    column-gap: 1.8rem;
+  }
+  @media screen and (max-width: 600px) {
+    gap: 4rem 3rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &__image {
+    height: 34rem;
+    border-radius: 5px;
+  }
+
+  &-1 {
+    background-image: url("https://i.ibb.co/4VCt8fr/h1-600.jpg");
+  }
+  &-2 {
+    background-image: url("https://i.ibb.co/sWN32Jc/h2-600.jpg");
+  }
+  &-3 {
+    background-image: url("https://i.ibb.co/dr1dhX3/h3-600.jpg");
+  }
+  &-4 {
+    background-image: url("https://i.ibb.co/FwgT3wN/h4-600.jpg");
+  }
+  &-5 {
+    background-image: url("https://i.ibb.co/kgyVQxC/h5-600.jpg");
+  }
+  &-6 {
+    background-image: url("https://i.ibb.co/XCX3Rp0/h6-600.jpg");
+  }
+  &-7 {
+    background-image: url("https://i.ibb.co/jTZB37W/h7-600.jpg");
+  }
+  &-8 {
+    background-image: url("https://i.ibb.co/sWN32Jc/h2-600.jpg");
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    padding: 1rem 0;
+  }
+  &__name {
+    font-size: 2rem;
+  }
+  &__price {
+    font-family: var(--primary-text-font-light);
+    font-size: 1.6rem;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__button {
+    position: absolute;
+    bottom: 7rem;
+    width: 80%;
+    padding: 1.6rem 0;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    cursor: pointer;
+    font-family: var(--primary-text-font);
+    font-size: 1.8rem;
+    text-transform: uppercase;
+
+    @media screen and (max-width: 950px) {
+      padding: 1.6rem 0;
+      font-size: 1.6rem;
+    }
+    @media screen and (max-width: 450px) {
+      bottom: 6rem;
+      width: 100%;
+    }
+  }
+}
+
+.product-hero {
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 28rem;
+
+  &__text {
+    font-family: var(--primary-heading-font-bold-italic);
+    font-size: 5rem;
+    text-transform: uppercase;
+  }
+}
+
+.product-category {
+  margin-top: 40rem;
+}

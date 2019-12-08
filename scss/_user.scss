@@ -1,0 +1,92 @@
+.sign-up-in {
+  display: flex;
+  margin-top: 8rem;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.sign-in {
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  margin-right: 10%;
+
+  @media screen and (max-width: 600px) {
+    width: 90%;
+    margin-bottom: 10%;
+  }
+  &__heading {
+    margin-bottom: 1.6rem;
+    font-size: 3rem;
+  }
+
+  &__subheading {
+    font-family: var(--primary-text-font-light);
+    font-size: 1.8rem;
+    opacity: 0.8;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+
+  &-button {
+    width: 15rem;
+    padding: 1.6rem 2.4rem;
+    border: none;
+    margin-top: 2rem;
+    background-color: #000;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-family: var(--secondary-heading-font-bold);
+    font-size: 1.6rem;
+    text-transform: uppercase;
+  }
+
+  &-input {
+    display: block;
+    width: 100%;
+    padding: 10px 10px 10px 5px;
+    border: none;
+    border-bottom: 1px solid grey;
+    margin: 25px 0;
+    background: none;
+    background-color: #fff;
+    border-radius: 0;
+    color: grey;
+    font-size: 18px;
+
+    &:focus ~ .form-input-label {
+      top: 15px;
+      font-size: 1.2rem;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &-group {
+    position: relative;
+  }
+
+  &-input-label {
+    position: absolute;
+    top: 35px;
+    left: 5px;
+    color: grey;
+    font-size: 1.6rem;
+    font-weight: 400;
+    pointer-events: none;
+    transition: all 0.3s ease;
+
+    .shrink {
+      top: 15px;
+      font-size: 1.2rem;
+    }
+  }
+}
