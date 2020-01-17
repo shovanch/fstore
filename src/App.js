@@ -7,6 +7,7 @@ import HomePage from "pages/HomePage";
 import CollectionPage from "pages/CollectionPage";
 import CheckoutPage from "pages/CheckoutPage";
 import SignInPage from "pages/SignInPage";
+import withRouterLoading from "components/withRouterLoading";
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
           <Route exact path="/collection" component={CollectionPage} />
           <Route exact path="/checkout" component={CheckoutPage} />
           <Route exact path="/signin" component={SignInPage} />
+          <Route exact path="/loading" component={withRouterLoading} />
         </Switch>
       </div>
     );
