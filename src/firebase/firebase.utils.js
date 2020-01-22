@@ -42,6 +42,27 @@ export const createUserProfileDocument = async (
   return userRef;
 };
 
+// To upload the shopData object to Firebase
+export const addCollectionsAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  // Get ref to collection with matching key
+  const collectionRef = firestore.collection(collectionKey);
+
+  // Batching the set call, so that we can do multiel writes at oncc
+  const batch = firestore.batch();
+
+  // Loop over the objects and setting each obj as indv. doc
+  objectsToAdd.forEach(obj => {
+    // Get a ref for doc under collection
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, obj);
+  });
+
+  return await batch.commit()
+};
+
 // firebase methods
 firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();

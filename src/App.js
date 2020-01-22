@@ -10,13 +10,18 @@ import CheckoutPage from "pages/CheckoutPage";
 import SignInPage from "pages/SignInPage";
 import Error from "components/Error";
 import withRouterLoading from "components/withRouterLoading";
-import { auth, createUserProfileDocument } from "firebase/firebase.utils";
+import {
+  auth,
+  createUserProfileDocument,
+  addCollectionsAndDocuments
+} from "firebase/firebase.utils";
 
 // Redux action and selector
 import { setCurrentUser } from "redux/user/user.actions";
 import { selectCurrentUser } from "redux/user/user.selector";
+import { selectCollectionArray } from "redux/shop/shop.selector";
 
-const App = ({ setCurrentUser, currentUser }) => {
+const App = ({ setCurrentUser, currentUser, collectionArray }) => {
   useEffect(() => {
     // unscribeauth to null
     let unsubscribeFromAuth = null;
@@ -25,8 +30,10 @@ const App = ({ setCurrentUser, currentUser }) => {
     unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       // user signs in, checking through userAuth obj
       if (userAuth) {
-        // Get user data and set it as current user
+        // Get user data, it will return ref to the logged in user if exists
         const userRef = await createUserProfileDocument(userAuth);
+
+        // Set it as current user
         userRef.onSnapshot(snapshot => {
           setCurrentUser({
             id: snapshot.id,
@@ -34,9 +41,15 @@ const App = ({ setCurrentUser, currentUser }) => {
           });
         });
       } else {
-        // If userAuth is null, means user is signed out,
+        // If userAuth is null, means user is signed out or no user
         // set currentUser to userAuth returned value
         setCurrentUser(userAuth);
+
+        // Destrcuture collection array to store only title and items
+        addCollectionsAndDocuments(
+          "collections",
+          collectionArray.map(({ title, items }) => ({ title, items }))
+        );
       }
     });
 
@@ -64,7 +77,8 @@ const App = ({ setCurrentUser, currentUser }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  collectionArray: selectCollectionArray
 });
 
 const mapDispatchToProps = dispatch => ({
