@@ -2,6 +2,7 @@ import React from "react";
 
 const HomeMenuItem = ({ title, number }) => (
   <a
+    href="/test"
     className={`collections__link link-${number} background-img sale__background`}
   >
     <h1 className="collections__link-text">{title}</h1>

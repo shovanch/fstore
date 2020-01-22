@@ -6,7 +6,9 @@ const Header = () => (
   <header className="header">
     <h1 className="header__logo">FSTORE.</h1>
     <CartIcon itemCount="10" />
-    <a className="header__signin">Sign In</a>
+    <a className="header__signin" href="/test">
+      Sign In
+    </a>
     <CartDropdown />
   </header>
 );

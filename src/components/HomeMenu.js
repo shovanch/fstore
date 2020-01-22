@@ -8,7 +8,7 @@ const HomeMenu = () => (
       <div className="background-img sale__background " />
       <div className="sale__content">
         <h1 className="sale__heading">Exclusive Winter Collection</h1>
-        <a href="#" className="sale__link">
+        <a href="/test" className="sale__link">
           Shop Now
         </a>
       </div>

@@ -9,7 +9,7 @@ const SignUp = () => (
     <form action="" className="form">
       <div className="form-group">
         <input type="text" name="" className="form-input" />
-        <label className=" form-input-label">Display Name</label>
+        <label className="form-input-label">Display Name</label>
       </div>
       <div className="form-group">
         <input type="email" name="" className="form-input" />
