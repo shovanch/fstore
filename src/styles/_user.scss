@@ -58,7 +58,7 @@
     background: none;
     background-color: #fff;
     border-radius: 0;
-    color: grey;
+    color: #000;
     font-size: 18px;
 
     &:focus ~ .form-input-label {
@@ -84,7 +84,7 @@
     pointer-events: none;
     transition: all 0.3s ease;
 
-    .shrink {
+    &.shrink {
       top: 15px;
       font-size: 1.2rem;
     }
