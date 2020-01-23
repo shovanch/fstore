@@ -60,7 +60,7 @@ export const addCollectionsAndDocuments = async (
     batch.set(newDocRef, obj);
   });
 
-  return await batch.commit()
+  return await batch.commit();
 };
 
 // firebase methods
