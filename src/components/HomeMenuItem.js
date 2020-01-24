@@ -1,12 +1,23 @@
 import React from "react";
+import { withRouter, useHistory } from "react-router-dom";
 
-const HomeMenuItem = ({ title, number }) => (
-  <a
-    href="/test"
-    className={`collections__link link-${number} background-img sale__background`}
-  >
-    <h1 className="collections__link-text">{title}</h1>
-  </a>
-);
+const HomeMenuItem = ({ title, imageUrl, size, linkUrl }) => {
+  // let { url } = useParams();
+  let history = useHistory();
 
+  return (
+    <div
+      // to="/test"
+      className={`${size} collections__link link background-img`}
+      style={{
+        backgroundImage: `url(${imageUrl})`
+      }}
+      onClick={() => history.push(`${linkUrl}`)}
+    >
+      <h1 className="collections__link-text">{title}</h1>
+    </div>
+  );
+};
+
+// export default withRouter(HomeMenuItem);
 export default HomeMenuItem;

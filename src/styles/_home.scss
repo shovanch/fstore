@@ -11,7 +11,7 @@
   }
 
   &__background {
-    background-image: url("../assets/images/winter-sale.jpg");
+    // background-image: url("../assets/images/winter-sale.jpg");
 
     @media screen and (max-width: 1150px) {
       border-radius: 0;
@@ -78,13 +78,12 @@
     }
   }
 
-  .link-1,
-  .link-2,
-  .link-3 {
+  // .link-1,
+  // .link-2,
+  .link {
     grid-column-start: span 2;
   }
-  .link-4,
-  .link-5 {
+  .large {
     grid-column-start: span 3;
     grid-row-start: 2;
   }

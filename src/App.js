@@ -4,17 +4,14 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import Header from "components/Header";
-import HomePage from "pages/HomePage";
-import CollectionPage from "pages/CollectionPage";
-import CheckoutPage from "pages/CheckoutPage";
-import SignInPage from "pages/SignInPage";
-import Error from "components/Error";
 import withRouterLoading from "components/withRouterLoading";
-import {
-  auth,
-  createUserProfileDocument,
-  addCollectionsAndDocuments
-} from "firebase/firebase.utils";
+import HomePage from "pages/Home";
+import CategoryPage from "pages/Category";
+import CheckoutPage from "pages/Checkout";
+import SignInPage from "pages/SignIn";
+import Error from "components/Error";
+
+import { auth, createUserProfileDocument } from "firebase/firebase.utils";
 
 // Redux action and selector
 import { setCurrentUser } from "redux/user/user.actions";
@@ -44,12 +41,6 @@ const App = ({ setCurrentUser, currentUser, collectionArray }) => {
         // If userAuth is null, means user is signed out or no user
         // set currentUser to userAuth returned value
         setCurrentUser(userAuth);
-
-        // Destrcuture collection array to store only title and items
-        addCollectionsAndDocuments(
-          "collections",
-          collectionArray.map(({ title, items }) => ({ title, items }))
-        );
       }
     });
 
@@ -61,7 +52,7 @@ const App = ({ setCurrentUser, currentUser, collectionArray }) => {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/collection" component={CollectionPage} />
+        <Route exact path="/shop/:categoryId" component={CategoryPage} />
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route exact path="/loading" component={withRouterLoading} />
         {/* Render props for conditional rendering */}

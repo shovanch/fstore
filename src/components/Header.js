@@ -10,7 +10,9 @@ import { selectCurrentUser } from "redux/user/user.selector";
 
 const Header = ({ currentUser }) => (
   <header className="header">
-    <h1 className="header__logo">FSTORE.</h1>
+    <Link className="header__logo" to="/">
+      FSTORE.
+    </Link>
     <CartIcon itemCount="10" />
     {/* Handle condtional rednering of signout button, depending on if user logged in */}
     {currentUser ? (
