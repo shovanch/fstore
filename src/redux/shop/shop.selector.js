@@ -11,3 +11,9 @@ export const selectCollectionArray = createSelector(
   [selectShopCollections],
   collections => Object.keys(collections).map(key => collections[key])
 );
+
+export const selectCollection = collectionUrlParams =>
+  createSelector(
+    [selectShopCollections],
+    collections => collections[collectionUrlParams]
+  );

@@ -52,7 +52,7 @@ const App = ({ setCurrentUser, currentUser, collectionArray }) => {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/shop/:categoryId" component={CategoryPage} />
+        <Route path="/shop/:categoryId" component={CategoryPage} />
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route exact path="/loading" component={withRouterLoading} />
         {/* Render props for conditional rendering */}
