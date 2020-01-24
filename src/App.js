@@ -11,14 +11,18 @@ import CheckoutPage from "pages/Checkout";
 import SignInPage from "pages/SignIn";
 import Error from "components/Error";
 
-import { auth, createUserProfileDocument } from "firebase/firebase.utils";
+import {
+  auth,
+  createUserProfileDocument,
+  addCollectionsAndDocuments
+} from "firebase/firebase.utils";
 
 // Redux action and selector
 import { setCurrentUser } from "redux/user/user.actions";
 import { selectCurrentUser } from "redux/user/user.selector";
-import { selectCollectionArray } from "redux/shop/shop.selector";
+import { selectShopCollections } from "redux/shop/shop.selector";
 
-const App = ({ setCurrentUser, currentUser, collectionArray }) => {
+const App = ({ setCurrentUser, currentUser, collections }) => {
   useEffect(() => {
     // unscribeauth to null
     let unsubscribeFromAuth = null;
@@ -41,6 +45,7 @@ const App = ({ setCurrentUser, currentUser, collectionArray }) => {
         // If userAuth is null, means user is signed out or no user
         // set currentUser to userAuth returned value
         setCurrentUser(userAuth);
+        addCollectionsAndDocuments("collections", collections);
       }
     });
 
@@ -69,7 +74,7 @@ const App = ({ setCurrentUser, currentUser, collectionArray }) => {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  collectionArray: selectCollectionArray
+  collections: selectShopCollections
 });
 
 const mapDispatchToProps = dispatch => ({
