@@ -9,7 +9,6 @@ const HomePage = ({ isFetching }) => {
   console.log("RENDERING");
   return (
     <main>
-      {isFetching ? <h1>LOADING</h1> : <h1>DONE</h1>}
       <HomeMenu />
     </main>
   );

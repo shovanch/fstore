@@ -1,8 +1,7 @@
 import React from "react";
-import { withRouter, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const HomeMenuItem = ({ title, imageUrl, size, linkUrl }) => {
-  // let { url } = useParams();
   let history = useHistory();
 
   return (
@@ -20,5 +19,4 @@ const HomeMenuItem = ({ title, imageUrl, size, linkUrl }) => {
   );
 };
 
-// export default withRouter(HomeMenuItem);
 export default HomeMenuItem;

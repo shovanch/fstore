@@ -14,23 +14,32 @@ const CheckoutItem = ({ cartItem, addItem, removeItem, clearItem }) => {
       <div className="checkout-1">
         <span className="checkout-item__name">{name}</span>
         <span className="checkout-item__quantity">
-          <div className="decrease" onClick={() => removeItem(cartItem)}>
+          <button
+            type="button"
+            className="decrease"
+            onClick={() => removeItem(cartItem)}
+          >
             -
-          </div>
+          </button>
           <span className="checkout-item__value">{quantity}</span>
-          <div className="increase" onClick={() => addItem(cartItem)}>
+          <button
+            type="button"
+            className="increase"
+            onClick={() => addItem(cartItem)}
+          >
             +
-          </div>
+          </button>
         </span>
       </div>
       <div className="checkout-2">
         <span className="checkout-item__price">${price}</span>
-        <div
+        <button
+          type="button"
           className="checkout-item__remove-btn"
           onClick={() => clearItem(cartItem)}
         >
           X
-        </div>
+        </button>
       </div>
     </div>
   );
