@@ -6,23 +6,18 @@ import { connect } from "react-redux";
 import Header from "components/Header";
 import withRouterLoading from "components/withRouterLoading";
 import HomePage from "pages/Home";
-import CategoryPage from "pages/Category";
+import CollectionPage from "pages/Collection";
 import CheckoutPage from "pages/Checkout";
 import SignInPage from "pages/SignIn";
 import Error from "components/Error";
 
-import {
-  auth,
-  createUserProfileDocument,
-  addCollectionsAndDocuments
-} from "firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "firebase/firebase.utils";
 
 // Redux action and selector
 import { setCurrentUser } from "redux/user/user.actions";
 import { selectCurrentUser } from "redux/user/user.selector";
-import { selectShopCollections } from "redux/shop/shop.selector";
 
-const App = ({ setCurrentUser, currentUser, collections }) => {
+const App = ({ setCurrentUser, currentUser }) => {
   useEffect(() => {
     // unscribeauth to null
     let unsubscribeFromAuth = null;
@@ -45,7 +40,6 @@ const App = ({ setCurrentUser, currentUser, collections }) => {
         // If userAuth is null, means user is signed out or no user
         // set currentUser to userAuth returned value
         setCurrentUser(userAuth);
-        addCollectionsAndDocuments("collections", collections);
       }
     });
 
@@ -57,7 +51,7 @@ const App = ({ setCurrentUser, currentUser, collections }) => {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/shop/:categoryId" component={CategoryPage} />
+        <Route path="/shop/:collectionId" component={CollectionPage} />
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route exact path="/loading" component={withRouterLoading} />
         {/* Render props for conditional rendering */}
@@ -73,8 +67,7 @@ const App = ({ setCurrentUser, currentUser, collections }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-  collections: selectShopCollections
+  currentUser: selectCurrentUser
 });
 
 const mapDispatchToProps = dispatch => ({

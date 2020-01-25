@@ -1,20 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import ShopItem from "components/ShopItem";
-import ShopHeader from "components/ShopHeader";
+import CollectionItem from "components/CollectionItem";
+import CollectionHeader from "components/CollectionHeader";
 
 import { selectCollection } from "redux/shop/shop.selector";
 
-const CategoryPage = ({ collection }) => {
+const CollectionPage = ({ collection }) => {
   const { title, items } = collection;
   return (
     <>
-      <ShopHeader title={title} />
+      <CollectionHeader title={title} />
       <main>
         <div className="product product-category">
           {items.map(item => (
-            <ShopItem key={item.id} item={item} />
+            <CollectionItem key={item.id} item={item} />
           ))}
         </div>
       </main>
@@ -26,4 +26,4 @@ const mapStateToProps = (state, ownProps) => ({
   collection: selectCollection(ownProps.match.params.categoryId)(state)
 });
 
-export default connect(mapStateToProps)(CategoryPage);
+export default connect(mapStateToProps)(CollectionPage);

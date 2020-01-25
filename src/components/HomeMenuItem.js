@@ -7,7 +7,8 @@ const HomeMenuItem = ({ title, imageUrl, size, linkUrl }) => {
 
   return (
     <div
-      // to="/test"
+      role="button"
+      tabIndex={0}
       className={`${size} collections__link link background-img`}
       style={{
         backgroundImage: `url(${imageUrl})`
