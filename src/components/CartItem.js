@@ -1,9 +1,8 @@
 import React from "react";
-import Img from "../assets/images/winter-sale-2.jpg";
 
-const CartItem = ({ name, quantity, price }) => (
+const CartItem = ({ item: { name, imageUrl, quantity, price } }) => (
   <div className="cart-item">
-    <img src={Img} alt="" className="cart-item-image" />
+    <img src={imageUrl} alt="" className="cart-item-image" />
     <div className="item-details">
       <span>{name}</span>
       <span>
