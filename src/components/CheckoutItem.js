@@ -1,22 +1,45 @@
 import React from "react";
-import Img from "assets/images/winter-sale.jpg";
+import { connect } from "react-redux";
+import {
+  addItem,
+  removeItem,
+  clearItemFromCart
+} from "redux/cart/cart.actions";
 
-const CheckoutItem = ({ name, price }) => (
-  <div className="checkout-item">
-    <img src={Img} alt="" className="checkout-item__image" />
-    <div className="checkout-1">
-      <span className="checkout-item__name">{name}</span>
-      <span className="checkout-item__quantity">
-        <div className="decrease">-</div>
-        <span className="checkout-item__value">10</span>
-        <div className="increase">+</div>
-      </span>
+const CheckoutItem = ({ cartItem, addItem, removeItem, clearItem }) => {
+  const { name, imageUrl, price, quantity } = cartItem;
+  return (
+    <div className="checkout-item">
+      <img src={imageUrl} alt="" className="checkout-item__image" />
+      <div className="checkout-1">
+        <span className="checkout-item__name">{name}</span>
+        <span className="checkout-item__quantity">
+          <div className="decrease" onClick={() => removeItem(cartItem)}>
+            -
+          </div>
+          <span className="checkout-item__value">{quantity}</span>
+          <div className="increase" onClick={() => addItem(cartItem)}>
+            +
+          </div>
+        </span>
+      </div>
+      <div className="checkout-2">
+        <span className="checkout-item__price">${price}</span>
+        <div
+          className="checkout-item__remove-btn"
+          onClick={() => clearItem(cartItem)}
+        >
+          X
+        </div>
+      </div>
     </div>
-    <div className="checkout-2">
-      <span className="checkout-item__price">${price}</span>
-      <div className="checkout-item__remove-btn">X</div>
-    </div>
-  </div>
-);
+  );
+};
 
-export default CheckoutItem;
+const mapDispatchToProps = dispatch => ({
+  clearItem: item => dispatch(clearItemFromCart(item)),
+  addItem: item => dispatch(addItem(item)),
+  removeItem: item => dispatch(removeItem(item))
+});
+
+export default connect(null, mapDispatchToProps)(CheckoutItem);

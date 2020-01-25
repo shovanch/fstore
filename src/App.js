@@ -1,4 +1,3 @@
-// import React, { useEffect } from "react";
 import React, { useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
@@ -10,7 +9,6 @@ import CollectionPage from "pages/Collection";
 import CheckoutPage from "pages/Checkout";
 import SignInPage from "pages/SignIn";
 import Error from "components/Error";
-import withRouterLoading from "components/withRouterLoading";
 import { auth, createUserProfileDocument } from "firebase/firebase.utils";
 
 // Redux action and selector
@@ -55,7 +53,6 @@ const App = ({ setCurrentUser, currentUser, fetchCollectionsStartAsync }) => {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/shop/:collectionId" component={CollectionPage} />
         <Route exact path="/checkout" component={CheckoutPage} />
-        <Route exact path="/loading" component={withRouterLoading} />
         {/* Render props for conditional rendering */}
         <Route
           exact

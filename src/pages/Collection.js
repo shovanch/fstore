@@ -3,19 +3,22 @@ import { connect } from "react-redux";
 
 import CollectionItem from "components/CollectionItem";
 import CollectionHeader from "components/CollectionHeader";
+import LoadingSpinner from "components/LoadingSpinner";
 
 import {
   selectCollection,
   selectIsCollectionFetching
 } from "redux/shop/shop.selector";
 
-const CollectionPage = ({ collection, selectIsCollectionFetching }) => {
+const CollectionPage = ({ collection, isFetching }) => {
+  if (isFetching) {
+    return <LoadingSpinner />;
+  }
+
   if (!collection) {
     return <h1>NOT FOUND</h1>;
   }
-  if (selectIsCollectionFetching) {
-    return <h1>LOADING</h1>;
-  }
+
   const { title, items } = collection;
   return (
     <>
@@ -32,7 +35,8 @@ const CollectionPage = ({ collection, selectIsCollectionFetching }) => {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  collection: selectCollection(ownProps.match.params.collectionId)(state)
+  collection: selectCollection(ownProps.match.params.collectionId)(state),
+  isFetching: selectIsCollectionFetching(state)
 });
 
 export default connect(mapStateToProps)(CollectionPage);

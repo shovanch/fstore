@@ -1,6 +1,6 @@
 import React from "react";
 
-const withRouterLoading = () => (
+const LoadingSpinner = () => (
   <main>
     <div className="spinner">
       <div className="double-bounce1" />
@@ -9,4 +9,4 @@ const withRouterLoading = () => (
   </main>
 );
 
-export default withRouterLoading;
+export default LoadingSpinner;
