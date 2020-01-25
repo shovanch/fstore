@@ -11,7 +11,9 @@ const CartDropdown = () => (
       <CartItem name="black shoes" quantity="10" price="90" />
       <CartItem name="black shoes" quantity="10" price="90" />
     </div>
-    <button className="cart-button">GO TO CHECKOUT</button>
+    <button type="button" className="cart-button">
+      GO TO CHECKOUT
+    </button>
   </div>
 );
 
