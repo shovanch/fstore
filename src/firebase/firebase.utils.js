@@ -54,17 +54,35 @@ export const addCollectionsAndDocuments = async (
   const batch = firestore.batch();
 
   // Loop over the objects and setting each obj as indv. doc
-  // objectsToAdd.forEach(obj => {
-  //   // Get a ref for doc under collection
-  //   const newDocRef = collectionRef.doc();
-  //   batch.set(newDocRef, obj);
-  // });
-  Object.keys(objectsToAdd).map(key => {
-    const newDocRef = collectionRef.doc(key);
-    batch.set(newDocRef, objectsToAdd[key]);
+  objectsToAdd.forEach(obj => {
+    // Get a ref for doc under collection
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, obj);
   });
-  console.log("DONE");
   return await batch.commit();
+};
+
+// Get the collections from firebase and transform it into a giant object
+export const convertCollectionSnapshotToObj = collections => {
+  const transformedCollectionObj = collections.docs.map(doc => {
+    // Extract title and itemsArray from document
+    const { title, items } = doc.data();
+
+    // Modify the collection doc by adding route & id
+    return {
+      // converts the title to URl string
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      items
+    };
+  });
+
+  return transformedCollectionObj.reduce((accumulator, collection) => {
+    // Create giant object with key of doc title for each collection
+    accumulator[collection.title.toLowerCase()] = collection;
+    return accumulator;
+  }, {});
 };
 
 // firebase methods

@@ -1,23 +1,28 @@
+// import React, { useEffect } from "react";
 import React, { useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import Header from "components/Header";
-import withRouterLoading from "components/withRouterLoading";
 import HomePage from "pages/Home";
 import CollectionPage from "pages/Collection";
 import CheckoutPage from "pages/Checkout";
 import SignInPage from "pages/SignIn";
 import Error from "components/Error";
-
+import withRouterLoading from "components/withRouterLoading";
 import { auth, createUserProfileDocument } from "firebase/firebase.utils";
 
 // Redux action and selector
 import { setCurrentUser } from "redux/user/user.actions";
 import { selectCurrentUser } from "redux/user/user.selector";
+import { fetchCollectionsStartAsync } from "redux/shop/shop.actions";
 
-const App = ({ setCurrentUser, currentUser }) => {
+const App = ({ setCurrentUser, currentUser, fetchCollectionsStartAsync }) => {
+  useEffect(() => {
+    fetchCollectionsStartAsync();
+  }, []);
+
   useEffect(() => {
     // unscribeauth to null
     let unsubscribeFromAuth = null;
@@ -51,7 +56,7 @@ const App = ({ setCurrentUser, currentUser }) => {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/shop/:collectionId" component={CollectionPage} />
+        <Route exact path="/collection" component={CollectionPage} />
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route exact path="/loading" component={withRouterLoading} />
         {/* Render props for conditional rendering */}
@@ -71,7 +76,8 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

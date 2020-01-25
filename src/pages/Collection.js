@@ -4,9 +4,12 @@ import { connect } from "react-redux";
 import CollectionItem from "components/CollectionItem";
 import CollectionHeader from "components/CollectionHeader";
 
-import { selectCollection } from "redux/shop/shop.selector";
+import {
+  selectCollection,
+  selectIsCollectionFetching
+} from "redux/shop/shop.selector";
 
-const CollectionPage = ({ collection }) => {
+const CollectionPage = ({ collection, selectIsCollectionFetching }) => {
   const { title, items } = collection;
   return (
     <>

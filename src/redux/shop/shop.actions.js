@@ -1,10 +1,8 @@
-import { firestore } from "firebase/firebase.utils";
+import {
+  firestore,
+  convertCollectionSnapshotToObj
+} from "firebase/firebase.utils";
 import ShopActionTypes from "./shop.types";
-
-export const updateCollections = collectionsMap => ({
-  type: ShopActionTypes.UPDATE_COLLECTIONS,
-  payload: collectionsMap
-});
 
 export const fetchCollectionsStart = () => ({
   type: ShopActionTypes.FETCH_COLLECTIONS_START
@@ -26,6 +24,13 @@ export const fetchCollectionsStartAsync = () => {
     const collectionRef = firestore.collection("collections");
     dispatch(fetchCollectionsStart());
 
-    collectionRef.get().then(snapshot);
+    // Convert the incoming snapshot object into a giant object and pass it to set as state
+    collectionRef
+      .get()
+      .then(snapshot => {
+        const collectionsObj = convertCollectionSnapshotToObj(snapshot);
+        dispatch(fetchCollectionsSuccess(collectionsObj));
+      })
+      .catch(error => dispatch(fetchCollectionsFailture(error.message)));
   };
 };
