@@ -21,9 +21,6 @@ import { fetchCollectionsStartAsync } from "redux/shop/shop.actions";
 const App = ({ setCurrentUser, currentUser, fetchCollectionsStartAsync }) => {
   useEffect(() => {
     fetchCollectionsStartAsync();
-  }, []);
-
-  useEffect(() => {
     // unscribeauth to null
     let unsubscribeFromAuth = null;
     // Subcribe to auth changes b/w app & firebase
@@ -56,7 +53,7 @@ const App = ({ setCurrentUser, currentUser, fetchCollectionsStartAsync }) => {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/collection" component={CollectionPage} />
+        <Route exact path="/shop/:collectionId" component={CollectionPage} />
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route exact path="/loading" component={withRouterLoading} />
         {/* Render props for conditional rendering */}
