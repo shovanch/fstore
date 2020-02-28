@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import { selectCartItems, selectCartTotal } from "redux/cart/cart.selector";
+import StripeCheckoutButton from "components/StripeCheckoutButton";
 import CheckoutItem from "components/CheckoutItem";
 
 const CheckoutPage = ({ cartItems, totalAmount }) => (
@@ -18,9 +19,13 @@ const CheckoutPage = ({ cartItems, totalAmount }) => (
       )}
 
       <span className="checkout-total">Total: ${totalAmount}</span>
-      <button type="button" className="checkout-button">
-        pay now
-      </button>
+      <div className="checkout-button">
+        <h2>
+          *Use the following card-number: 4242 4242 4242 4242, with any date and
+          CVV
+        </h2>
+        <StripeCheckoutButton price={totalAmount} />
+      </div>
     </div>
   </main>
 );
