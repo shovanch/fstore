@@ -38,7 +38,7 @@ const SignIn = () => {
   const { email, password } = userData;
   return (
     <div className="sign-in">
-      <h1 className="sign-in__heading">I already have an account</h1>
+      <h1 className="sign-in__heading">Already have an account</h1>
       <h3 className="sign-in__subheading">
         Sign in with your email and password
       </h3>
@@ -67,7 +67,7 @@ const SignIn = () => {
         <button
           type="button"
           onClick={signinWithGoogle}
-          className="form-button"
+          className="form-button form-button--google"
         >
           Sign In With Google
         </button>

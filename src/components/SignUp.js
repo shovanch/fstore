@@ -56,7 +56,7 @@ const SignUp = () => {
   const { displayName, email, password, confirmPassword } = userData;
   return (
     <div className="sign-in">
-      <h1 className="sign-in__heading">I do not have an account</h1>
+      <h1 className="sign-in__heading">Do not have an account</h1>
       <h3 className="sign-in__subheading">
         Sign up with your email and password
       </h3>

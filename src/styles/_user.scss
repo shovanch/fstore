@@ -35,7 +35,6 @@
   padding: 2rem 0;
 
   &-button {
-    width: 15rem;
     padding: 1.6rem 2.4rem;
     border: none;
     margin-top: 2rem;
@@ -43,9 +42,17 @@
     border-radius: 4px;
     color: #fff;
     cursor: pointer;
-    font-family: var(--secondary-heading-font-bold);
     font-size: 1.6rem;
     text-transform: uppercase;
+    font-weight: bold;
+    font-family: var(--primary-text-font);
+    width: 100%;
+    letter-spacing: 1px;
+
+    &--google {
+      background-color: #4285f4;
+      color: #ffffff;
+    }
   }
 
   &-input {
