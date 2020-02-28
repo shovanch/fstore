@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Error from "components/Error";
 
 import CollectionItem from "components/CollectionItem";
 import CollectionHeader from "components/CollectionHeader";
@@ -16,7 +17,7 @@ const CollectionPage = ({ collection, isFetching }) => {
   }
 
   if (!collection) {
-    return <h1>NOT FOUND</h1>;
+    return <Error />;
   }
 
   const { title, items } = collection;
