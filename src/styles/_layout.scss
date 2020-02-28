@@ -143,3 +143,20 @@ main {
     margin-top: 6rem;
   }
 }
+
+.error {
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    padding: 2rem 3rem;
+
+    h1 {
+      margin-bottom: 4rem;
+      margin-top: 25%;
+    }
+  }
+  &-img {
+    width: 50%;
+  }
+}
