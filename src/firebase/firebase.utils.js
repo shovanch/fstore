@@ -12,6 +12,11 @@ const firebaseConfig = {
   appId: "1:595858142802:web:8e8bf590b15b502b31118b"
 };
 
+// firebase methods
+firebase.initializeApp(firebaseConfig);
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+
 // Create new user profile in firebase, taking user object-data as params
 export const createUserProfileDocument = async (
   userAuthObj,
@@ -84,11 +89,6 @@ export const convertCollectionSnapshotToObj = collections => {
     return accumulator;
   }, {});
 };
-
-// firebase methods
-firebase.initializeApp(firebaseConfig);
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
 
 // For Google auth signin method
 const provider = new firebase.auth.GoogleAuthProvider();

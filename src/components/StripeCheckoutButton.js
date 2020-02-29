@@ -7,9 +7,9 @@ const StripeCheckoutButton = ({ price }) => {
   const priceForStripe = price * 100;
   const publishableKey = "pk_test_iBtvqBq9vwCEZVXfeeYDAuEJ00GSODhso1";
 
-  // we trigger onToken and pass the token to backend for process upon receiving the token from stripe
+  // we trigger onToken and pass the token to backend for process upon receiving the token from stripe,
+  // Here's no backend, so redirecting user to homepage
   const onToken = token => {
-    console.log(token);
     alert("Payment Succesful");
     window.location.href = "/";
   };

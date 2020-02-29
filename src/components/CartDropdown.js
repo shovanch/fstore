@@ -24,7 +24,7 @@ const CartDropdown = ({ cartItems, dispatch }) => {
         className="cart-button"
         onClick={() => {
           history.push("/checkout");
-          dispatch(toggleCartHidden());
+          dispatch(toggleCartHidden()); // Hide cartdropdown after moving to checkout page
         }}
       >
         GO TO CHECKOUT
