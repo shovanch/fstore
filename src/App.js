@@ -52,7 +52,14 @@ const App = ({ setCurrentUser, currentUser, fetchCollectionsStartAsync }) => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/shop/:collectionId" component={CollectionPage} />
-        <Route exact path="/checkout" component={CheckoutPage} />
+        {/* Conditonal redirects based on if user is signed in */}
+        <Route
+          exact
+          path="/checkout"
+          render={() =>
+            currentUser ? <CheckoutPage /> : <Redirect to="/signin" />
+          }
+        />
         {/* Render props for conditional rendering */}
         <Route
           exact

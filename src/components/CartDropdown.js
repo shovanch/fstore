@@ -4,9 +4,10 @@ import { useHistory } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { toggleCartHidden } from "redux/cart/cart.actions";
 import { selectCartItems } from "redux/cart/cart.selector";
+import { selectCurrentUser } from "redux/user/user.selector";
 import CartItem from "components/CartItem";
 
-const CartDropdown = ({ cartItems, dispatch }) => {
+const CartDropdown = ({ currentUser, cartItems, dispatch }) => {
   let history = useHistory();
   return (
     <div className="cart">
@@ -19,21 +20,36 @@ const CartDropdown = ({ cartItems, dispatch }) => {
           <h1>Cart Is empty</h1>
         )}
       </div>
-      <button
-        type="button"
-        className="cart-button"
-        onClick={() => {
-          history.push("/checkout");
-          dispatch(toggleCartHidden()); // Hide cartdropdown after moving to checkout page
-        }}
-      >
-        GO TO CHECKOUT
-      </button>
+      {/* Go to checkout page only if user is signed in, else go to signin */}
+      {currentUser ? (
+        <button
+          type="button"
+          className="cart-button"
+          onClick={() => {
+            history.push("/checkout");
+            dispatch(toggleCartHidden()); // Hide cartdropdown after moving to checkout page
+          }}
+        >
+          GO TO CHECKOUT
+        </button>
+      ) : (
+        <button
+          type="button"
+          className="cart-button"
+          onClick={() => {
+            history.push("/signin");
+            dispatch(toggleCartHidden());
+          }}
+        >
+          SIGN IN TO CHECKOUT
+        </button>
+      )}
     </div>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
-  cartItems: selectCartItems
+  cartItems: selectCartItems,
+  currentUser: selectCurrentUser
 });
 export default connect(mapStateToProps, null)(CartDropdown);
