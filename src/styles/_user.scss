@@ -4,18 +4,18 @@
 }
 
 .login {
-  width: 45%;
+  width: 50%;
   margin: 0 auto;
 
   @media screen and (max-width: 600px) {
-    width: 60%;
+    width: 80%;
   }
 }
 .login-header {
   margin-bottom: 6rem;
   font-family: var(--heading-font);
   font-size: 4rem;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
 }
 
 .form {
