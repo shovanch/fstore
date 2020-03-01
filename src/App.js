@@ -8,6 +8,7 @@ import HomePage from "pages/Home";
 import CollectionPage from "pages/Collection";
 import CheckoutPage from "pages/Checkout";
 import SignInPage from "pages/SignIn";
+import SignUpPage from "pages/SignUp";
 import Error from "components/Error";
 import { auth, createUserProfileDocument } from "firebase/firebase.utils";
 
@@ -65,6 +66,11 @@ const App = ({ setCurrentUser, currentUser, fetchCollectionsStartAsync }) => {
           exact
           path="/signin"
           render={() => (currentUser ? <Redirect to="/" /> : <SignInPage />)}
+        />
+        <Route
+          exact
+          path="/signup"
+          render={() => (currentUser ? <Redirect to="/" /> : <SignUpPage />)}
         />
         <Route component={Error} />
       </Switch>

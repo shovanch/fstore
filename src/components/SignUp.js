@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { auth, createUserProfileDocument } from "firebase/firebase.utils";
 import FormInput from "./FormInput";
 
@@ -55,52 +56,60 @@ const SignUp = () => {
 
   const { displayName, email, password, confirmPassword } = userData;
   return (
-    <div className="sign-in">
-      <h1 className="sign-in__heading">Do not have an account</h1>
-      <h3 className="sign-in__subheading">
-        Sign up with your email and password
-      </h3>
-      <form className="form" onSubmit={handleSubmit}>
-        <FormInput
-          type="text"
-          name="displayName"
-          label="Display Name"
-          value={displayName}
-          onChange={handleChange}
-          required
-        />
-        <FormInput
-          type="email"
-          name="email"
-          label="Email"
-          value={email}
-          onChange={handleChange}
-          required
-        />
-        <FormInput
-          type="password"
-          name="password"
-          label="Password"
-          minLength="8"
-          value={password}
-          onChange={handleChange}
-          required
-        />
-        <FormInput
-          type="password"
-          name="confirmPassword"
-          label="Confirm Password"
-          minLength="8"
-          value={confirmPassword}
-          onChange={handleChange}
-          required
-        />
+    <section className="section-login">
+      <div className="login">
+        <h1 className="login-header">Signup for Your Account</h1>
+        <form className="form" onSubmit={handleSubmit}>
+          <FormInput
+            type="text"
+            name="displayName"
+            label="Display Name"
+            placeholder="Name"
+            value={displayName}
+            onChange={handleChange}
+            required
+          />
+          <FormInput
+            type="email"
+            name="email"
+            label="Email"
+            placeholder="you@exmaple.com"
+            value={email}
+            onChange={handleChange}
+            required
+          />
+          <FormInput
+            type="password"
+            name="password"
+            label="Password"
+            placeholder="********"
+            minLength="8"
+            value={password}
+            onChange={handleChange}
+            required
+          />
+          <FormInput
+            type="password"
+            name="confirmPassword"
+            label="Confirm Password"
+            placeholder="********"
+            minLength="8"
+            value={confirmPassword}
+            onChange={handleChange}
+            required
+          />
 
-        <button type="submit" className="form-button">
-          Sign Up
-        </button>
-      </form>
-    </div>
+          <div className="form__group">
+            <button type="submit" className="form__btn">
+              Sign Up
+            </button>
+          </div>
+        </form>
+        <Link to="/signin" className="sign-account-link">
+          Already have an account
+        </Link>
+      </div>
+    </section>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { auth, signinWithGoogle } from "firebase/firebase.utils";
+import { Link } from "react-router-dom";
 import FormInput from "./FormInput";
 
 const SignIn = () => {
@@ -37,42 +38,50 @@ const SignIn = () => {
 
   const { email, password } = userData;
   return (
-    <div className="sign-in">
-      <h1 className="sign-in__heading">Already have an account</h1>
-      <h3 className="sign-in__subheading">
-        Sign in with your email and password
-      </h3>
-      <form className="form" onSubmit={handleSubmit}>
-        <FormInput
-          type="email"
-          name="email"
-          label="Email"
-          value={email}
-          onChange={handleChange}
-          required
-        />
-        <FormInput
-          type="password"
-          name="password"
-          label="Password"
-          minLength="8"
-          value={password}
-          onChange={handleChange}
-          required
-        />
+    <section className="section-login">
+      <div className="login">
+        <h1 className="login-header">Signin to Your Account</h1>
+        <form className="form" onSubmit={handleSubmit}>
+          <FormInput
+            type="email"
+            name="email"
+            label="Email"
+            placeholder="you@exmaple.com"
+            value={email}
+            onChange={handleChange}
+            required
+          />
+          <FormInput
+            type="password"
+            name="password"
+            label="Password"
+            placeholder="********"
+            minLength="8"
+            value={password}
+            onChange={handleChange}
+            required
+          />
 
-        <button type="submit" className="form-button">
-          Sign In
-        </button>
-        <button
-          type="button"
-          onClick={signinWithGoogle}
-          className="form-button form-button--google"
-        >
-          Sign In With Google
-        </button>
-      </form>
-    </div>
+          <div className="form__group">
+            <button type="submit" className="form__btn">
+              Sign In
+            </button>
+          </div>
+          <div className="form__group">
+            <button
+              type="button"
+              onClick={signinWithGoogle}
+              className="form__btn form__btn--google"
+            >
+              Sign In With Google
+            </button>
+          </div>
+        </form>
+        <Link to="/signup" className="sign-account-link">
+          Create Account
+        </Link>
+      </div>
+    </section>
   );
 };
 export default SignIn;

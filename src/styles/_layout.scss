@@ -35,10 +35,10 @@ main {
   &__signin {
     margin-left: 2rem;
     font-size: 2rem;
+    cursor: pointer;
   }
 
   &__cart {
-    cursor: pointer;
     position: relative;
     width: 3.2rem;
     height: 3.2rem;
